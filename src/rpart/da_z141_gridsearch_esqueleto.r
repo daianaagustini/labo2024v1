@@ -102,12 +102,14 @@ dataset <- dataset[clase_ternaria != ""]
 # creo la carpeta donde va el experimento
 # HT  representa  Hiperparameter Tuning
 dir.create("./exp/", showWarnings = FALSE)
-dir.create("./exp/HT2020/", showWarnings = FALSE)
+dir.create("./exp/HT2021/", showWarnings = FALSE)
 archivo_salida <- "./exp/HT2020/gridsearch.txt"
 
 # genero la data.table donde van los resultados del Grid Search
 tb_grid_search <- data.table( max_depth = integer(),
                               min_split = integer(),
+                              min_bucket = integer(),
+                              v_cp = integer(),
                               ganancia_promedio = numeric() )
 
 
@@ -133,12 +135,12 @@ for (vmax_depth in c(4, 6, 8, 10, 12, 14)) {
         # agrego a la tabla
         tb_grid_search <- rbindlist( 
         list( tb_grid_search, 
-                list( vmax_depth, vmin_split, ganancia_promedio) ) )
+                list( vmax_depth, vmin_split, vmin_bucket, v_cp, ganancia_promedio) ) )
       }
     }
   }
 
-}
+
 
 # escribo la tabla a disco en cada vuelta del loop mas externo
 Sys.sleep(2)  # espero un par de segundos
@@ -146,3 +148,4 @@ Sys.sleep(2)  # espero un par de segundos
 fwrite( tb_grid_search,
         file = archivo_salida,
         sep = "\t" )
+}

@@ -36,7 +36,7 @@ PARAM <- list()
 
 PARAM$experimento <- "HT4330"
 
-PARAM$input$dataset <- "./datasets/dataset_pequeno.csv"
+PARAM$input$dataset <- "./dataset_pequeno.csv"
 PARAM$input$training <- c(202107) # los meses en los que vamos a entrenar
 
 PARAM$hyperparametertuning$iteraciones <- 100
@@ -198,12 +198,12 @@ EstimarGanancia_ranger <- function(x) {
 setwd("~/buckets/b1/") # Establezco el Working Directory
 
 # cargo MI semilla, que esta en MI bucket
-tabla_semillas <- fread( "./datasets//mis_semillas.txt" )
+tabla_semillas <- fread( "./mis_semillas.txt" )
 ksemilla_azar1 <- tabla_semillas[ 1, semilla ]  # 1 es mi primer semilla
 ksemilla_azar2 <- tabla_semillas[ 2, semilla ]  # 2 es mi segunda semilla
 
 # cargo el dataset donde voy a entrenar el modelo
-dataset <- fread("./datasets/dataset_pequeno.csv", stringsAsFactors = TRUE)
+dataset <- fread("./dataset_pequeno.csv", stringsAsFactors = TRUE)
 
 dataset <- dataset[foto_mes %in% PARAM$input$training]
 

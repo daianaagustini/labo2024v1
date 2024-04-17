@@ -17,9 +17,9 @@ require("ggplot2")
 
 # cambiar aqui los parametros
 PARAM <- list()
-PARAM$minsplit <- 300
-PARAM$minbucket <- 20
-PARAM$maxdepth <- 11
+PARAM$minsplit <- 600
+PARAM$minbucket <- 2
+PARAM$maxdepth <- 20
 
 #------------------------------------------------------------------------------
 # particionar agrega una columna llamada fold a un dataset
@@ -52,11 +52,11 @@ particionar <- function(data, division, agrupa = "", campo = "fold",
 setwd("~/buckets/b1/") # Establezco el Working Directory
 
 #cargo MI amada primera semilla, que esta en MI bucket
-tabla_semillas <- fread( "./datasets//mis_semillas.txt" )
+tabla_semillas <- fread( "./mis_semillas.txt" )
 ksemilla_azar <- tabla_semillas[ 1, semilla ]  # 1 es mi primera semilla
 
 # cargo el dataset
-dataset <- fread("./datasets/dataset_pequeno.csv")
+dataset <- fread("./dataset_pequeno.csv")
 
 # a partir de ahora solo trabajo con 202107, el mes que tiene clase
 dataset <- dataset[foto_mes == 202107] # defino donde voy a entrenar

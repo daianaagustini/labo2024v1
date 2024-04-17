@@ -68,11 +68,11 @@ tb_pred[ , Predicted := 0L ]
 tb_pred[ 1:11000, Predicted := 1L ]
 
 fwrite( tb_pred[, list(numero_de_cliente, Predicted)],
-        file= "stopping_at_canaritos.csv",
+        file= "stopping_at_canaritos2.csv",
         sep = ",")
 
 
-pdf(file = "stopping_at_canaritos.pdf", width = 28, height = 4)
+pdf(file = "stopping_at_canaritos2.pdf", width = 28, height = 4)
 prp(modelo_pruned,
     extra = 101, digits = -5,
     branch = 1, type = 4, varlen = 0, faclen = 0

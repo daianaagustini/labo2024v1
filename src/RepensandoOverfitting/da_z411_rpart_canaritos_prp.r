@@ -8,7 +8,7 @@ require("rpart.plot")
 
 setwd("~/buckets/b1/" )  # establezco la carpeta donde voy a trabajar
 # cargo el dataset
-dataset <- fread( "./datasets/dataset_pequeno.csv")
+dataset <- fread( "./dataset_pequeno.csv")
 
 dir.create("./exp/", showWarnings = FALSE)
 dir.create("./exp/CN4110/", showWarnings = FALSE)
@@ -29,10 +29,10 @@ for( i in 1:154 ) dataset[ , paste0("canarito", i ) :=  runif( nrow(dataset)) ]
                data= dataset[ foto_mes==202107,],
                model = TRUE,
                xval = 0,
-               cp = -0.5,
-               minsplit =  600,
-               minbucket = 150,
-               maxdepth = 6 )
+               cp = -1,
+               minsplit =  100,
+               minbucket = 20,
+               maxdepth = 10 )
 
 
 pdf(file = "./arbol_canaritos.pdf", width=28, height=4)

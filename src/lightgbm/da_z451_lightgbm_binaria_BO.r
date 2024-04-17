@@ -35,7 +35,7 @@ PARAM <- list()
 
 PARAM$experimento <- "HT4510"
 
-PARAM$input$dataset <- "./datasets/dataset_pequeno.csv"
+PARAM$input$dataset <- "./dataset_pequeno.csv"
 PARAM$input$training <- c(202107) # los meses en los que vamos a entrenar
 
 # un undersampling de 0.1  toma solo el 10% de los CONTINUA
@@ -216,7 +216,7 @@ EstimarGanancia_lightgbm <- function(x) {
 setwd("~/buckets/b1/") # Establezco el Working Directory
 
 # cargo MI semilla, que esta en MI bucket
-tabla_semillas <- fread( "./datasets//mis_semillas.txt" )
+tabla_semillas <- fread( "./mis_semillas.txt" )
 ksemilla_azar1 <- tabla_semillas[ 1, semilla ]  # 1 es mi primera semilla
 ksemilla_azar2 <- tabla_semillas[ 2, semilla ]  # 2 es mi segunda semilla
 

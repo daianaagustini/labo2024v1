@@ -9,6 +9,6 @@ mis_semillas <- c(101111, 103123, 107347, 109049, 113021)
 tabla_semillas <- as.data.table(list( semilla = mis_semillas ))
 
 fwrite(tabla_semillas,
-    file = "~/buckets/b1/datasets/mis_semillas.txt",
+    file = "~/buckets/b1/mis_semillas.txt",
     sep = "\t"
 )

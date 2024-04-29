@@ -318,13 +318,13 @@ corrida_guantesblancos_202109 <- function( pnombrewf, pvirgen=FALSE )
 {
   if( -1 == exp_wf_init( pnombrewf, pvirgen) ) return(0) # linea fija
 
-  DT_incorporar_dataset_default( "DT0004", "competencia_2024.csv.gz")
-  CA_catastrophe_default( "CA0004", "DT0004" )
+  DT_incorporar_dataset_default( "DT0005", "competencia_2024.csv.gz")
+  CA_catastrophe_default( "CA0005", "DT0005" )
 
-  DR_drifting_guantesblancos( "DR0004", "CA0004" )
-  FE_historia_guantesblancos( "FE0004", "DR0004" )
+  DR_drifting_guantesblancos( "DR0005", "CA0005" )
+  FE_historia_guantesblancos( "FE0005", "DR0005" )
 
-  TS_strategy_guantesblancos_202109( "TS0004", "FE0004" )
+  TS_strategy_guantesblancos_202109( "TS0005", "FE0005" )
 
   HT_tuning_guantesblancos( "HT0004", "TS0004" )
 
@@ -346,12 +346,12 @@ corrida_guantesblancos_202107 <- function( pnombrewf, pvirgen=FALSE )
   if( -1 == exp_wf_init( pnombrewf, pvirgen) ) return(0) # linea fija
 
   # Ya tengo corrido FE0001 y parto de alli
-  TS_strategy_guantesblancos_202107( "TS0004b", "FE0004" )
+  TS_strategy_guantesblancos_202107( "TS0005b", "FE0005" )
 
-  HT_tuning_guantesblancos( "HT0004b", "TS0004b" )
+  HT_tuning_guantesblancos( "HT0005b", "TS0005b" )
 
   # El ZZ depente de HT y TS
-  ZZ_final_guantesblancos( "ZZ0004b", c("HT0004b", "TS0004b") )
+  ZZ_final_guantesblancos( "ZZ0005b", c("HT0005b", "TS0005b") )
 
 
   exp_wf_end( pnombrewf, pvirgen ) # linea fija
@@ -363,12 +363,12 @@ corrida_guantesblancos_202107 <- function( pnombrewf, pvirgen=FALSE )
 
 # Hago primero esta corrida que me genera los experimentos
 # DT0001, CA0001, DR0001, FE0001, TS0001, HT0001 y ZZ0001
-corrida_guantesblancos_202109( "gb04" )
+corrida_guantesblancos_202109( "gb05" )
 
 
 # Luego partiendo de  FE0001
 # genero TS0002, HT0002 y ZZ0002
 
-corrida_guantesblancos_202107( "gb04b" )
+corrida_guantesblancos_202107( "gb05b" )
 
  

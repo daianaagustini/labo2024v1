@@ -14,7 +14,7 @@ require("ParamHelpers")
 envg <- env()
 
 envg$EXPENV <- list()
-envg$EXPENV$exp_dir <- "~/buckets/b1/exp/E1"
+envg$EXPENV$exp_dir <- "~/buckets/b1/exp/E2"
 envg$EXPENV$wf_dir <- "~/buckets/b1/flow/"
 envg$EXPENV$wf_dir_local <- "~/flow/"
 envg$EXPENV$repo_dir <- "~/labo2024v1/"
@@ -260,7 +260,7 @@ HT_tuning_guantesblancos <- function( pmyexp, pinputexps, pserver="local")
     pos_bagging_fraction = 1.0, # 0.0 < pos_bagging_fraction <= 1.0
     neg_bagging_fraction = 1.0, # 0.0 < neg_bagging_fraction <= 1.0
     is_unbalance = FALSE, #
-    scale_pos_weight = 1.0, # scale_pos_weight > 0.0
+    scale_pos_weight = c(1L, 99L, "integer"), # scale_pos_weight > 0.0
 
     drop_rate = 0.1, # 0.0 < neg_bagging_fraction <= 1.0
     max_drop = 50, # <=0 means no limit

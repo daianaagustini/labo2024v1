@@ -14,7 +14,7 @@ require("ParamHelpers")
 envg <- env()
 
 envg$EXPENV <- list()
-envg$EXPENV$exp_dir <- "~/buckets/b1/exp/E1"
+envg$EXPENV$exp_dir <- "~/buckets/b1/exp/E4"
 envg$EXPENV$wf_dir <- "~/buckets/b1/flow/"
 envg$EXPENV$wf_dir_local <- "~/flow/"
 envg$EXPENV$repo_dir <- "~/labo2024v1/"
@@ -256,9 +256,9 @@ HT_tuning_guantesblancos <- function( pmyexp, pinputexps, pserver="local")
     max_bin = 31L, # lo debo dejar fijo, no participa de la BO
     num_iterations = 9999, # un numero muy grande, lo limita early_stopping_rounds
 
-    bagging_fraction = 1.0, # 0.0 < bagging_fraction <= 1.0
-    pos_bagging_fraction = 1.0, # 0.0 < pos_bagging_fraction <= 1.0
-    neg_bagging_fraction = 1.0, # 0.0 < neg_bagging_fraction <= 1.0
+    bagging_fraction = c(0.1, 0.9), # 0.0 < bagging_fraction <= 1.0
+    pos_bagging_fraction = c(0.1, 0.9), # 0.0 < pos_bagging_fraction <= 1.0
+    neg_bagging_fraction = c(0.1, 0.9), # 0.0 < neg_bagging_fraction <= 1.0
     is_unbalance = FALSE, #
     scale_pos_weight = 1.0, # scale_pos_weight > 0.0
 

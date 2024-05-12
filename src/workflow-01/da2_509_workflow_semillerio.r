@@ -13,7 +13,7 @@ require("ParamHelpers")
 envg <- env()
 
 envg$EXPENV <- list()
-envg$EXPENV$exp_dir <- "~/buckets/b1/exp/"
+envg$EXPENV$exp_dir <- "~/buckets/b1/exp/F2"
 envg$EXPENV$wf_dir <- "~/buckets/b1/flow/"
 envg$EXPENV$wf_dir_local <- "~/flow/"
 envg$EXPENV$repo_dir <- "~/labo2024v1/"
@@ -161,10 +161,10 @@ TS_strategy_baseline_202109 <- function( pmyexp, pinputexps, pserver="local")
 
 
   param_local$future <- c(202109)
-  param_local$final_train <- c(202107, 202106, 202105, 202104, 202103, 202102, 202101, 202012, 202011)
+  param_local$final_train <- c(202107, 202106, 202105, 202104, 202103, 202102, 202101, 202012, 202011, 202010, 202009, 202008, 202002, 202001, 201912, 201911, 201910, 201909)
 
 
-  param_local$train$training <- c(202105, 202104, 202103, 202102, 202101, 202012, 202011, 202010, 202009)
+  param_local$train$training <- c(202105, 202104, 202103, 202102, 202101, 202012, 202011, 202010, 202009, 202008, 202002, 202001, 201912, 201911, 201910, 201909, 201908, 201907)
   param_local$train$validation <- c(202106)
   param_local$train$testing <- c(202107)
 
@@ -184,15 +184,15 @@ TS_strategy_baseline_202107 <- function( pmyexp, pinputexps, pserver="local")
 
 
   param_local$future <- c(202107)
-  param_local$final_train <- c(202105, 202104, 202103, 202102, 202101, 202012, 202011, 202010, 202009)
+  param_local$final_train <- c(202105, 202104, 202103, 202102, 202101, 202012, 202011, 202010, 202009, 202008, 202002, 202001, 201912, 201911, 201910, 201909, 201908, 201907))
 
 
-  param_local$train$training <- c(202103, 202102, 202101, 202012, 202011, 202010, 202009, 202008, 202007)
+  param_local$train$training <- c(202103, 202102, 202101, 202012, 202011, 202010, 202009, 202008, 202002, 202001, 201912, 201911, 201910, 201909, 201908, 201907, 201906, 201905)
   param_local$train$validation <- c(202104)
   param_local$train$testing <- c(202105)
 
   # undersampling  baseline
-  param_local$train$undersampling <- 0.2
+  param_local$train$undersampling <- 0.3
 
   return( exp_correr_script( param_local ) ) # linea fija
 }
@@ -249,7 +249,7 @@ HT_tuning_baseline <- function( pmyexp, pinputexps, pserver="local")
 
 
   # una Beyesian de Guantes Blancos, solo hace 15 iteraciones
-  param_local$bo_iteraciones <- 50 # iteraciones de la Optimizacion Bayesiana
+  param_local$bo_iteraciones <- 150 # iteraciones de la Optimizacion Bayesiana
 
   return( exp_correr_script( param_local ) ) # linea fija
 }
@@ -266,7 +266,7 @@ ZZ_final_baseline <- function( pmyexp, pinputexps, pserver="local")
   param_local$modelos_rank <- c(1)
 
   param_local$kaggle$envios_desde <-  9500L
-  param_local$kaggle$envios_hasta <- 11500L
+  param_local$kaggle$envios_hasta <- 12000L
   param_local$kaggle$envios_salto <-   500L
 
   # para el caso que deba graficar
@@ -302,7 +302,7 @@ ZZ_final_semillerio_baseline <- function( pmyexp, pinputexps, pserver="local")
 
   # El parametro fundamental de semillerio
   # Es la cantidad de LightGBM's que ensamblo
-  param_local$semillerio <- 20
+  param_local$semillerio <- 50
 
   return( exp_correr_script( param_local ) ) # linea fija
 }
@@ -369,12 +369,12 @@ corrida_baseline_semillerio_202107 <- function( pnombrewf, pvirgen=FALSE )
 #Aqui empieza el programa
 
 
-corrida_baseline_semillerio_202109( "basem01" )
+corrida_baseline_semillerio_202109( "basem02" )
 
 
 # Luego partiendo de  FE0001
 # genero TS0002, HT0002 y ZZ0002
 
-corrida_baseline_semillerio_202107( "basem02" )
+corrida_baseline_semillerio_202107( "basem02b" )
 
  
